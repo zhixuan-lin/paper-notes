@@ -1,2 +1,3 @@
 *.pdf
+!notes.pdf
 .DS_Store
