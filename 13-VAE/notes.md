@@ -5,12 +5,12 @@ I also read some other very helpful tutorials on this.
 
 # Assumptions
 
-Suppose that we have a dataset $X = \{x^{(i)} \}_{i=1}^N$ draw from some distribution $p_\theta(x)​$, identically and independently. We assume that the data is produced as follows:
+Suppose that we have a dataset $X = \{x^{(i)} \}_{i=1}^N$ draw from some distribution $p_\theta(x)$, identically and independently. We assume that the data is produced as follows:
 
 * A value $z$ (latent variable) is first draw from $p_\theta(z)$. 
 * Given $z$, $x$ is drawn from $p_\theta(x |z)$
 
-Putting it in a formal way, we have two random variables $X$ and $Z​$, and their joint distribution is defined by
+Putting it in a formal way, we have two random variables $X$ and $Z$, and their joint distribution is defined by
 $$
 p_\theta(x, z) = p_\theta(x|z)p_\theta(z)
 $$
