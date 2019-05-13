@@ -135,3 +135,5 @@ Where $\sum_i\pi_i = 1$. Note $\sum_i F_i$ is $F$, so $M$ updates is equivalent 
 
 
 
+
+

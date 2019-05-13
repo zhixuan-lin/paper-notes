@@ -6,7 +6,7 @@ To-read:
 - [x] Auto-Encoding Variational Bayes (half)
 - [x] Importance Weighted Autoencoders 
 - [x] Weight Uncertainty in Neural Networks
-- [ ] Categorical Reparameterization with Gumbel-Softmax
+- [x] Categorical Reparameterization with Gumbel-Softmax
 - [ ] beta-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework
 - [ ] VRNN: A Recurrent Latent Variable Model for Sequential Data
 - [ ] Towards Conceptual Compression
@@ -22,4 +22,6 @@ Producing task:
 
 Other:
 
+- [x] Semi-supervised Learning with Deep Generative Models
+- [ ] SQAIR: Sequential Attend, Infer, Repeat: Generative Modelling of Moving Objects
 - [ ] Capsule
