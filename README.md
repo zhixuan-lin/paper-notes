@@ -7,7 +7,7 @@ To-read:
 - [x] Importance Weighted Autoencoders 
 - [x] Weight Uncertainty in Neural Networks
 - [x] Categorical Reparameterization with Gumbel-Softmax
-- [ ] beta-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework
+- [x] beta-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework
 - [ ] VRNN: A Recurrent Latent Variable Model for Sequential Data
 - [ ] Towards Conceptual Compression
 - [ ] Attend, Infer, Repeat: Fast Scene Understanding with Generative Models
@@ -23,5 +23,6 @@ Producing task:
 Other:
 
 - [x] Semi-supervised Learning with Deep Generative Models
+- [ ] Understanding Disentanglement in beta-VAE
 - [ ] SQAIR: Sequential Attend, Infer, Repeat: Generative Modelling of Moving Objects
 - [ ] Capsule

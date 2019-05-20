@@ -38,5 +38,34 @@ Where $a_k$ contains the following information:
 
 ![E1](Pics/E1.png)
 
+# Results
 
+## Representation Quality
+
+Segmentation
+
+* Figure: visualization on CLEVR, dSprites, Tetris
+  * Each line: image, recons, mask, individual masked reconstruction
+  * mask is colored
+* ARI:
+  * On CLEVR, Multi dSprites, Tetris
+  * with binarized Multi-dSprite, compares it with RNEM
+
+Information Content
+
+* On, CLEVR, factor regression on Color, Position, Shape, Size, with metric R^2
+  * Creating training set: it seems that this requires manual efforts.
+
+Disentanglement
+
+* The figure, with VAE and IODINE
+
+Generalization
+
+* On a scene with more objects, with results on iterations shown
+* Green sphere
+
+Multi-modal
+
+* Run for many times
 
