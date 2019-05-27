@@ -8,7 +8,7 @@ To-read:
 - [x] Weight Uncertainty in Neural Networks
 - [x] Categorical Reparameterization with Gumbel-Softmax
 - [x] beta-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework
-- [ ] VRNN: A Recurrent Latent Variable Model for Sequential Data
+- [x] VRNN: A Recurrent Latent Variable Model for Sequential Data
 - [ ] Towards Conceptual Compression
 - [ ] Attend, Infer, Repeat: Fast Scene Understanding with Generative Models
 - [ ] Towards a Neural Statistician
