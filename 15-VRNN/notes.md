@@ -1,4 +1,4 @@
-Are we making the assumption that, given $x_{\le T}$, $z_{\le T}$ and $x_{> T}$ are conditionally independent? Without this assumption, equation (10) in the paper should have been
+Are we making the assumption that, $z_{\le T}$ and $x_{> T}$ are conditionally independent given $x_{\le T}$ (or $p(z_{\le T} |x_{>T}, x_{\le T}) = p(z_{\le T}|x_{\le T})$)? Without this assumption, equation (10) in the paper should have been
 $$
 q(z_{\le T}|x_{\le T})  = \prod_{t =1}^T q(z_t |x_{\le T}, z_{<t})
 $$
@@ -6,7 +6,11 @@ instead of
 $$
 q(z_{\le T}|x_{\le T})  = \prod_{t =1}^T q(z_t |x_{\le t}, z_{<t})
 $$
-And the objective in equation (11) wouldn't hold as well.
+And the objective in equation (11) 
+$$
+\mathbb{E}_{q(\mathbf{z} \leq T | \mathbf{x} \leq T)}\left[\sum_{t=1}^{T}\left(-\mathrm{KL}\left(q\left(\mathbf{z}_{t} | \mathbf{x}_{ \leq t}, \mathbf{z}_{<t}\right) \| p\left(\mathbf{z}_{t} | \mathbf{x}_{<t}, \mathbf{z}_{<t}\right)\right)+\log p\left(\mathbf{x}_{t} | \mathbf{z}_{ \leq t}, \mathbf{x}_{<t}\right)\right)\right]
+$$
+wouldn't hold as well.
 
 * A Recurrent Latent Variable Model for Sequential Data
 * Junyoung Chung, Yoshua Bengio
