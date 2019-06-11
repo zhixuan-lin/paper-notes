@@ -9,7 +9,7 @@ To-read:
 - [x] Categorical Reparameterization with Gumbel-Softmax
 - [x] beta-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework
 - [x] VRNN: A Recurrent Latent Variable Model for Sequential Data
-- [ ] Towards Conceptual Compression
+- [x] Towards Conceptual Compression
 - [ ] Attend, Infer, Repeat: Fast Scene Understanding with Generative Models
 - [ ] Towards a Neural Statistician
 - [ ] Variational Continual Learning
@@ -25,4 +25,7 @@ Other:
 - [x] Semi-supervised Learning with Deep Generative Models
 - [ ] Understanding Disentanglement in beta-VAE
 - [ ] SQAIR: Sequential Attend, Infer, Repeat: Generative Modelling of Moving Objects
+- [x] DRAW: A Recurrent Neural Network For Image Generation
+- [ ] Deep autoregressive network
+- [ ] Neural Turing Machine
 - [ ] Capsule
