@@ -10,8 +10,8 @@ To-read:
 - [x] beta-VAE: Learning Basic Visual Concepts with a Constrained Variational Framework
 - [x] VRNN: A Recurrent Latent Variable Model for Sequential Data
 - [x] Towards Conceptual Compression
-- [ ] Attend, Infer, Repeat: Fast Scene Understanding with Generative Models
-- [ ] Towards a Neural Statistician
+- [x] Attend, Infer, Repeat: Fast Scene Understanding with Generative Models
+- [x] Towards a Neural Statistician
 - [ ] Variational Continual Learning
 
 Producing task:
@@ -23,6 +23,8 @@ Producing task:
 Other:
 
 - [x] Semi-supervised Learning with Deep Generative Models
+- [ ] Neural Variational Inference and Learning
+- [ ] Deep Convolutional Inverse Graphics Network
 - [ ] Understanding Disentanglement in beta-VAE
 - [ ] SQAIR: Sequential Attend, Infer, Repeat: Generative Modelling of Moving Objects
 - [x] DRAW: A Recurrent Neural Network For Image Generation

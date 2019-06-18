@@ -17,3 +17,4 @@ The author does not seem to address why this will happen. But from an intuitive 
 It seems that earlier $z_i$'s will have a larger impact on the final input (more modifications are dependent on them). So it is natural that $z_i$ will be contain more high level information.
 
 ![F1](pics/F1.png)
+
