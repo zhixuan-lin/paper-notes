@@ -12,7 +12,7 @@ To-read:
 - [x] Towards Conceptual Compression
 - [x] Attend, Infer, Repeat: Fast Scene Understanding with Generative Models
 - [x] Towards a Neural Statistician
-- [ ] Variational Continual Learning
+- [x] Variational Continual Learning
 
 Producing task:
 
