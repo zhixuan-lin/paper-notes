@@ -14,7 +14,7 @@ To-read:
 - [x] Towards a Neural Statistician
 - [x] Variational Continual Learning
 
-Producing task:
+Reproducing task:
 
 - [x] Iterative Amortized Inference
 - [x] Multi-Object Representation Learning with Iterative Variational Inference
@@ -23,11 +23,19 @@ Producing task:
 Other:
 
 - [x] Semi-supervised Learning with Deep Generative Models
+- [x] Variational Inference with Normalizing Flows
+- [x] DRAW: A Recurrent Neural Network For Image Generation
+- [ ] MADE: Masked Autoencoder for Distribution Estimation
+- [ ] How to train deep variational autoencoders and probabilistic ladder networks.
+- [ ] Neural Variational Inference and Learning
+- [ ] Gradient Estimation Using Stochastic Computation Graphs
+- [ ] Stochastic backpropagation and approximate inference in deep generative models.
 - [ ] Neural Variational Inference and Learning
 - [ ] Deep Convolutional Inverse Graphics Network
 - [ ] Understanding Disentanglement in beta-VAE
 - [ ] SQAIR: Sequential Attend, Infer, Repeat: Generative Modelling of Moving Objects
-- [x] DRAW: A Recurrent Neural Network For Image Generation
 - [ ] Deep autoregressive network
+- [ ] Hierarchical variational models.
 - [ ] Neural Turing Machine
-- [ ] Capsule
+- [ ] Capsule Net
+- [ ] 

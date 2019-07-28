@@ -54,7 +54,7 @@ Let's assume that $v \in \R^K$. To generate a single dataset,
    4. Generate $z_{li}, z_{lj}$. 
 3. Compute $z_{diff}= \frac{1}{L}\sum_{l= 1}^L|z_{li} - z_{lj}|$
 
-Then one data point will look like $z_{diff}, y$. This is just a classification problem and we can measure the accuracy.
+Then one data point will look like $(z_{diff}, y)$. This is just a classification problem and we can measure the accuracy.
 
 # Experiments
 

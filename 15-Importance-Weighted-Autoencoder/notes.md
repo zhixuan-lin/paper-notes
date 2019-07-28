@@ -1,7 +1,21 @@
 * Importance Weighted Autoencoders
 * Yuri Burda, Ruslan Salakhutdinov
 
+# Summary
+
+Note that in
+$$
+\log \mathbb E_{q_\phi(z|x)}[\frac{p_\theta(x, z)}{q_\phi(z|x)}] \ge \mathbb E_{q_\phi(z|x)}[\log \frac{p_\theta(x, z)}{q_\phi(z|x)}]
+$$
+The tightness of the lower bound is related to the variance of what is inside the expectation. To make the lower bound tighter, we can use $\frac{1}{k}\sum_{i=1}^k \frac{p_\theta(x, z_i)}{q_\phi(z_i |x)}$ instead, and we take expectations over $z_1, \ldots, z_k$. This yields a tigher lower bound:
+$$
+\mathbb E_{z_1, \ldots, z_k \sim q_\phi(z|x)}[\log\frac{1}{k}\sum_{i=1}^k \frac{p_\theta(x, z_i)}{q_\phi(z_i|x)}]
+$$
+Taking the derivative with respect to this yields a weighted version of VAE.
+
 # Motivation
+
+
 
 Let's consider the VAE objective:
 $$
@@ -42,7 +56,7 @@ Now comes the two major results about this lower bound.
   $$
   \log p(x) \ge \cal L_{k+1}\ge L_{k}
   $$
-  And the larger $k$, the tigher.
+  And the larger $k$, the tigher. 
 
 * The gradient of this objective with respect to $\theta$ can be written as
   $$
@@ -50,7 +64,9 @@ Now comes the two major results about this lower bound.
   $$
   where $\tilde w_i = \frac{w_i}{\sum_{i=1}^kw_i}$ is the normalize weight for its gradient.
 
-The second one has the good interpretation that it places higher weights on better samples, and tends to optimize $\theta$ using these samples.
+The second one has the good interpretation that it places higher weights on better samples, and tends to optimize $\theta$ using these samples. Besides, the implementation is straighforward. Evaluating $\nabla_\theta \log w(x, h(\epsilon_i, x, \theta), \theta)$ is just a backward pass of the standard VAE.
+
+Typically evaluating this weighted sum requires $k$ forward and backward pass. Instead, we can perform $k$ forward passes, and then choose a single $\epsilon_i$ **stochastically** with probability proportional to the normalized weight. This requires only 1 backward pass.
 
 # Experiments
 
@@ -59,7 +75,11 @@ On MNIST, the author shows that:
 * Larger $k$ does not improve the performance of VAE much
 * Instead, larger $k$ results in siginificantly better result for IWAE
 
-The author also measures the percent of "active dimensions" in the latent variable. And they discover that using IWAE objective allows more active dimensions. 
+The author also measures the percent of "active dimensions" in the latent variable. A latent dimension is defined to be active if the covariance of the posterior mean is large. Several interesting notes:
+
+* There are two modes in the distribution of the covariance.
+* Removing inactive dimensions affects little to performance
+* IWAE always has more active units.
 
 
 

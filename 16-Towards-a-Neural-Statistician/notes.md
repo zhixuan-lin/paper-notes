@@ -11,6 +11,8 @@ p(X) = \int p(c) [\int p(X|Z) p(Z|c) dZ] dc
 $$
 The crucial thing is that there is only a single $c$ for a single dataset.
 
+Another way to look at this is: the model is specified by $p(z|c), p(x|z)$, but we are given the supervision that which $x$'s share the same $c$.
+
 # Basic Model
 
 For the following I will use the paper's notation. They just replace $X$ with $D$. So their model is
@@ -26,6 +28,8 @@ These naturally translates into this lower bound:
 $$
 \mathcal{L}_{D}=\mathbb{E}_{q(c | D ; \phi)}\left[\sum_{x \in d} \mathbb{E}_{q(z | c, x ; \phi)}[\log p(x | z ; \theta)]-D_{K L}(q(z | c, x ; \phi) \| p(z | c ; \theta))\right]
 $$
+
+Note there are only four models here: $q(c|D), q(z|x), p(z|c), p(x|z)$, **no matter how many dataset we have.**
 
 # Full Model
 
@@ -58,7 +62,8 @@ The most important thing is to note that, we must have a **large number** of dat
 * Omnisglot. The important thing is that is composes of several classes. Three examples of fea-shot learning:
   * Training on a subset of datasets, and do conditional generation (dataset reconstruction) on unseen datasets in OMNIGLOT
   * Do generation on MNIST
-* Few-shoting classification. The idea is just to use $c$ as a class embedding.
+* Few-shoting classification. The idea is just to use $c$ as a class embedding. Each dataset has an embedding, and each example also has an embedding.
+  * For few-shot learning, we expect KNN to work well. However, the key is the embedding used. And Neural Statistician is one way of doing embedding.
 * Youtube faces: same as above.
 
 

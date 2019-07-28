@@ -1,6 +1,16 @@
 * Categorical Reparametrization with Gumbel-Softmax
 * Eric Jang, Shixiang Gu, Ben Poole
 
+# Summary
+
+Given a multinomial distribution parametrized by $\pi_1, \ldots, \pi_k$, it is possible to produce a sample using argmax:
+
+* Sample $g_i$ from Gumbel distribution
+* Compute $\log \pi_i  + g_i$
+* Apply argmax and one-hot to get final one-hot sample $z$
+
+The problem is the $z$ is not differentiable with respect to $\pi_i$. The idea in this paper is just to replace argmax+one-hot with softwax, which is differentiable.
+
 # Motivation
 
 When we are trying to introduce distributions into our objectives, we will often need a stochastic computation graph. Generally, there will be stochastic "nodes" which are samples from a distribution. To allow backpropagation, we will either require that the sample is directly differentiable with respect to the parameters. For Gaussian, this is easy with reparametrization trick. For discrete, categorical distributions, it is unclear how we can do this.
@@ -34,7 +44,7 @@ Related works
 * Path Derivative Gradient Estimators
   * Reparametrization trick
   * Straight-through: use fixed approximate gradient.
-* score function: REINFORCE. Based on $\nabla_{\theta} p_{\theta}(z)=p_{\theta}(z) \nabla_{\theta} \log p_{\theta}(z)$ you can compute $\nabla_{\theta} \mathbb{E}_{z}[f(z)]=\mathbb{E}_{z}\left[f(z) \nabla_{\theta} \log p_{\theta}(z)\right]$. The problem is that the variance is high. So there are many variants.
+* score function: REINFORCE. Based on $\nabla_{\theta} p_{\theta}(z)=p_{\theta}(z) \nabla_{\theta} \log p_{\theta}(z)$ you can compute $\nabla_{\theta} \mathbb{E}_{z}[f(z)]=\mathbb{E}_{z}\left[f(z) \nabla_{\theta} \log p_{\theta}(z)\right]$. The problem is that the variance is high (**grows linearly with dimensions**). So there are many variants.
 
 # Experiments
 

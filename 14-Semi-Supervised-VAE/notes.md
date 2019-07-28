@@ -1,6 +1,30 @@
 * Semi-supervised Learning with Deep Generative Models
 * Diederik P.Kingma, Max Welling
 
+# Summary
+
+We assume $p_\theta(x|y, z), p_\theta(z), p_\theta(y), q_\phi(z|y, x), q_\phi(z, y|x)$. For labaled dataset,
+$$
+\log p_\theta(x) \ge \mathbb E_{q_\phi(z|y,x)} [\log \frac{p_\theta(x, y, z)}{q_\phi(z|y, x)}] = \mathbb E_{q_\phi(z|y, x)}[\log\frac{p_\theta (x|y, z)p_\theta(y)p_\theta(z)}{q_\phi(z|y, x)}] = -L(x, y)
+$$
+For unlabeled dataset
+$$
+\log p_\theta(x, y) \ge \mathbb E_{q_\phi(z, y|x)} [\log \frac{p_\theta(x, y, z)}{q_\phi(z, y| x)}] = \mathbb E_{q_\phi(z , y| x)}[\log\frac{p_\theta (x|y, z)p_\theta(y)p_\theta(z)}{q_\phi(z|y, x)q_\phi(y|x)}] = \sum_yq_\phi(y|x)(-L(x, y)) + \mathcal H(q_\phi(y|x)) = -U(x)
+$$
+The reason we need to separate out $\mathbb E_{q_\phi(y|x)}$ is that the sampling operation is not differentiable.
+
+Finally, the loss is
+$$
+\mathbb E_{D_U}[U(x)] + \mathbb E_{D_L}[L(x, y)] + \alpha  \mathbb E_{D_L}[\log q_\phi(y|x)]
+$$
+
+
+
+
+
+
+
+
 # Introduction
 
 Traditional ways of self-supervised learning:
@@ -72,7 +96,9 @@ One thing that we note that, the model is only learning $q_\phi(y|x)$ on unlabel
 $$
 \mathcal J^\alpha = \mathcal J + \alpha E_{D_L}[-\log q_\phi(y|x)]
 $$
-In practive, $\alpha$ is set to 0.1
+In practive, $\alpha$ is set to 0.1.
+
+Note that optimizing this **expectations** will results in the **optimal** parameters. But estimating different terms will results in different variances, that's why we will want to weight these different terms.
 
 # Computational Complexity
 

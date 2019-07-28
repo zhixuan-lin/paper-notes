@@ -2,6 +2,10 @@
 * Charles Blundell
 * Daan Wierstra
 
+# Summary
+
+In short, we assume that form of $p(w), p(D|w)$, and we approximate the posterior $p(w|D)$ with VI by minimizing $D_{KL}[q(w|\theta)\| p(w |D)]$.
+
 # Motivation
 
 Overfitting can be interpreted as making overly confident predictions on unseen data. Given a dataset, it is more appropriate to talk about the distribution of the weights, instead of their exact value. This idea is natural within a Bayesian framework.
@@ -110,7 +114,7 @@ Where $\sum_i\pi_i = 1$. Note $\sum_i F_i$ is $F$, so $M$ updates is equivalent 
 # Experiments
 
 * Achieve comparable results on MNIST with dropout
-* Eliminate $95\%$ of the weights according to the signal-to-noise ratio $(|\mu_i| /\sigma_i)$ does not harm the model's performance, suggesting possiblity of model condensation
+* Eliminate $95\%$ of the weights according to the signal-to-noise ratio $(|\mu_i| /\sigma_i)$ does not harm the model's performance, suggesting possiblity of model condensation. Besides, there are two modes in the distribution of signal-to-noise ratio, and the cut-off is at approximately $75\%$. This is also the maxmimum percent with which removing the weights will not affect the performance.
 * On simple curve regression, the point that the model preseve the uncertainty about unseen data is demonstrated.
 
 

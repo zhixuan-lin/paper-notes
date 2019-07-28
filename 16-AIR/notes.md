@@ -16,7 +16,7 @@ $$
 
 # Inference
 
-Two difficulties:
+We can in theory directly model $q_\phi(z, n|x)$. But there are two difficulties:
 
 * Trans-dimensionality: the number of $z^i$'s is itself a random variable
 * Symmetry: $z^i$ should be permutation-invariant
@@ -27,13 +27,17 @@ q_{\phi}\left(\mathbf{z}, \mathbf{z}_{\mathrm{pres}} | \mathbf{x}\right)=q_{\phi
 $$
 Several notes here:
 
+* We only need to consider $z, z_{pres}$ combination that has **non-zero** probabilities, since we will sample from $q_\phi$, and then evaluate $q_\phi$. If we define the sampling process carefully, we don't need to consider zero-probability $q_\phi$
 * The condition part should really include $z^i_{prse} = 1$. But since this is always true, we can just omit this during modeling.
 * In essence, we are assuming an infinite number of $z^i$ and $z_{pres}^i$. 
 * Conditioning on $z^{1:i-1}, x$ is modeled with hidden states of the RNN.
 
 # Learning
 
-Just trivial. Different gradient estimation for discrete and continuous variables.
+Just trivial. Different gradient estimation for discrete and continuous variables:
+
+* Continuous: reparametrization
+* Discrete: Monte Carlo with a **neural baseline** to reduce variance.
 
 # Models and Experiments
 
@@ -53,13 +57,18 @@ For the first, we assume that at each time step, a $y^i$ is generated, and they 
 * from $z_{what}^i$, we generate the digit $y^i_{att}$
 * from $z_{where}^i$ and $y^i_{att}$, we generate the component $y^i$. 
 
+**Notes**: 
+
+* Note that the generative model is not modeled as an RNN. $p_N(n)$ is modeled as a geometric distribution, $p(z_{what})$ is sample from unit Gaussian, and $p(z_{where})$ is sample from a Gaussian with a predefined covariance matrix.
+* The meaning of $z^i_{where}$ is predefined since it is used to scale and shift the attention image.
+
 Inference goes in the opposite direction. This is best illustrated with this figure:
 
 ![f1](pics/f1.png)
 
 ## Experiments:
 
-* Multi-MNIST: correctly infers the number of digits
+* Multi-MNIST: correctly infers the number of digits. **Note there are not gradient propagate through $z^{pres}$**. The result is a combination of the pressure to explain the scene, and the cost from the geometric prior.
 * Strong generalization: interpolation
 * Representation power: for downstream tasks
 * 3D scenes: when the generative model is specified using a differential renderer, this network can be used to infer the pose and identity of the objects.

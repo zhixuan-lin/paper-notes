@@ -45,6 +45,8 @@ There are two cases:
 1. All datapoints come from the same distribution
 2. Datapoints in different datasets come from different distributions, **and even the output can differ**.
 
+Note that we model corresponds to $p(\theta|D_t)$. However, it is reasonble to use different $p(\cdot|\cdot)$ for different $t$.
+
 For the first case, we can just use a single-head network. For the second, there will be multiple heads. **Note, here we will define different $p(y|x, \theta)$ for different tasks.** $\theta$ will include a shared part $\theta^S$, but will also include task specific part $\theta_t^H$. This weights are only used in their $p(y|x, \theta)$, which means that they will be updated only once.
 
 # VCL in Generative Models
@@ -55,7 +57,7 @@ We assume a single $p(z)$. So $p(x|z, \theta)$ must differ for different tasks. 
 
 Dicriminative
 
-* Permuted-MINST: trivial. Single head-network
+* Permuted-MINST: trivial. The pixels are permuted in a fixed order. Single head-network will suffice.
 * Split-MNIST. 0/1, 2/3, 4/5. We must use multi-head network
 
 Generative
